@@ -1,0 +1,11 @@
+version: "2"
+services:
+  kibana:
+    container_name: kibana-for-elastic
+    network_mode: "host"
+    image: docker.elastic.co/kibana/kibana:5.5.3
+    volumes:
+      - ./kibana.yml:/usr/share/kibana/config/kibana.ymli
+    environment:
+      ELASTICSEARCH_URL: "http://0.0.0.0:9200"
+      SERVER_PORT: 8111
